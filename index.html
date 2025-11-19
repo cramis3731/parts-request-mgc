@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parts Request Form </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #003366;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #e0e0e0;
+            font-size: 14px;
+        }
+
+        .form-content {
+            padding: 30px 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .checkbox-item:hover {
+            background: #f8f9fa;
+            border-color: #667eea;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .file-upload {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .file-upload-label {
+            display: block;
+            cursor: pointer;
+        }
+
+        .file-input-wrapper {
+            display: none;
+        }
+
+        .upload-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .upload-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .file-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .file-name {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .info-message {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            border-left: 4px solid #1976d2;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .form-content {
+                padding: 20px 15px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="./Applied Logo 2.png" alt="Applied Industrial Technologies" class="logo">
+            <h1>Parts Request Form</h1>
+            <p><center><span style="color: #ADD8E6;"><bold>* R. F. Q. *</bold></span></center></p></span>
+        </div>
+
+        <div class="form-content">
+            <div class="info-message">
+               <center> Your Account Manager:   <bold>  MITCHELL GOMEZ </bold> </center>
+            </div>
+
+            <form action="https://formspree.io/f/movrdyyg" method="POST" enctype="multipart/form-data" id="partsRequestForm">
+                
+                <!-- Formspree redirect after submission -->
+                <input type="hidden" name="_next" value="https://cramis3731.github.io/parts-request-mgc/thank-you.html">
+                
+                <div class="form-group">
+                    <label for="partNumber">Part Number <span class="required">*</span></label>
+                    <input type="text" id="partNumber" name="part_number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description <span class="required">*</span></label>
+                    <input type="text" id="description" name="description" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Quantity <span class="required">*</span></label>
+                    <input type="number" id="quantity" name="quantity" min="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="manufacturer">Manufacturer</label>
+                    <input type="text" id="manufacturer" name="manufacturer">
+                </div>
+
+                <div class="form-group">
+                    <label>Request Type <span class="required">*</span></label>
+                    <input type="hidden" name="request_type" id="requestTypeHidden" required>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="forStock" name="request_type_display[]" value="For Stock">
+                            <label for="forStock">For Stock</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="preventive" name="request_type_display[]" value="Preventive Maintenance">
+                            <label for="preventive">Preventive Maintenance</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="emergency" name="request_type_display[]" value="Emergency - Line Stopped">
+                            <label for="emergency">Emergency - Line Stopped</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="otherInfo">Other Information</label>
+                    <textarea id="otherInfo" name="other_information" placeholder="Any additional details or special requirements..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="requestedBy">Requested By <span class="required">*</span></label>
+                    <input type="text" id="requestedBy" name="requested_by" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@company.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phoneNumber" name="phone_number" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Photo Upload</label>
+                    <div class="file-upload">
+                        <div class="file-icon">📷</div>
+                        <div>Take photo or select from gallery</div>
+                        <div class="file-name" id="fileName">No file selected</div>
+                        <label for="photoUpload" class="upload-button">
+                            Choose Photo
+                        </label>
+                        <input type="file" id="photoUpload" name="photo" accept="image/*" class="file-input-wrapper">
+                    </div>
+                </div>
+
+                <!-- Formspree honeypot for spam protection -->
+                <input type="text" name="_gotcha" style="display:none">
+
+                <button type="submit" class="submit-btn" id="submitBtn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Handle file upload display
+        document.getElementById('photoUpload').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'No file selected';
+            document.getElementById('fileName').textContent = fileName;
+        });
+
+        // Handle request type checkboxes - ensure at least one is selected
+        document.getElementById('partsRequestForm').addEventListener('submit', function(e) {
+            const checkboxes = document.querySelectorAll('input[name="request_type_display[]"]:checked');
+            
+            if (checkboxes.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one Request Type');
+                return false;
+            }
+
+            // Combine checked values into hidden field for cleaner email
+            const values = Array.from(checkboxes).map(cb => cb.value).join(', ');
+            document.getElementById('requestTypeHidden').value = values;
+
+            // Show loading state
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+        });
+    </script>
+</body>
+</html>

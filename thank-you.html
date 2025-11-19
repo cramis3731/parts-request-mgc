@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Submitted - Applied Industrial Technologies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: #003366;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .content {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            animation: scaleIn 0.5s ease-out 0.2s both;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .checkmark {
+            font-size: 48px;
+            color: white;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .thank-you-message {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .info-box h2 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-box h2::before {
+            content: "👤";
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            transition: transform 0.2s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            font-size: 20px;
+            margin-right: 12px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: #555;
+            margin-right: 8px;
+            min-width: 60px;
+        }
+
+        .contact-value {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .contact-value a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        .timeline-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-box h3 {
+            color: #856404;
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-box h3::before {
+            content: "⏱️";
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .timeline-box p {
+            color: #856404;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-label {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="./Applied Logo 2.png" alt="Applied Industrial Technologies" class="logo">
+        </div>
+
+        <div class="content">
+            <div class="success-icon">
+                <span class="checkmark">✓</span>
+            </div>
+
+            <h1>Request Submitted Successfully!</h1>
+            
+            <p class="thank-you-message">
+                Thank you for giving us the opportunity to serve you. Your parts request has been received and will be processed promptly by our team.
+            </p>
+
+            <div class="timeline-box">
+                <h3>What Happens Next?</h3>
+                <p>Your dedicated Applied Representative will review your request and contact you shortly with availability, pricing, and delivery information.</p>
+            </div>
+
+            <div class="info-box">
+                <h2>Your Account Manager</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">👤</span>
+                        <span class="contact-label">Name:</span>
+                        <span class="contact-value">Mitchell Gomez</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span class="contact-label">Mobile:</span>
+                        <span class="contact-value"><a href="tel:+17873496044">787-349-6044</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span class="contact-label">Email:</span>
+                        <span class="contact-value"><a href="mailto:mgomez@applied.com">mgomez@applied.com</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a href="javascript:history.back()" class="btn btn-secondary">Submit Another Request</a>
+                <a href="https://www.applied.com" class="btn btn-primary" target="_blank">Visit Our Website</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <strong>Applied Industrial Technologies</strong><br>
+            Committed to providing exceptional service and quality industrial solutions.<br>
+            We appreciate your business and look forward to serving you.
+        </div>
+    </div>
+
+    <script>
+        // Optional: Auto-scroll to top on page load
+        window.scrollTo(0, 0);
+    </script>
+</body>
+</html>
